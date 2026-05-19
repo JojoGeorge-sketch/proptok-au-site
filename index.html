@@ -15,6 +15,9 @@
             <strong>PropTok AU</strong>
             <span>Social property sales</span>
           </div>
+          <button class="icon-button close-search" id="closeSearchButton" aria-label="Close search filters">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
+          </button>
         </div>
 
         <section class="panel search-panel" aria-label="Search filters">
@@ -29,12 +32,27 @@
               <option value="NSW">NSW</option>
               <option value="VIC">VIC</option>
               <option value="QLD">QLD</option>
+              <option value="WA">WA</option>
+              <option value="SA">SA</option>
+              <option value="TAS">TAS</option>
+              <option value="ACT">ACT</option>
+              <option value="NT">NT</option>
+            </select>
+          </label>
+          <label>
+            Property type
+            <select id="typeFilter">
+              <option value="all">All types</option>
+              <option value="House">House</option>
+              <option value="Townhouse">Townhouse</option>
+              <option value="Unit">Unit</option>
+              <option value="Apartment">Apartment</option>
             </select>
           </label>
           <label>
             Budget
-            <input id="budgetFilter" type="range" min="700000" max="2800000" step="50000" value="2800000" />
-            <span id="budgetValue">$2.8m</span>
+            <input id="budgetFilter" type="range" min="450000" max="4200000" step="50000" value="4200000" />
+            <span id="budgetValue">$4.2m</span>
           </label>
           <div class="segmented" role="group" aria-label="Buyer intent">
             <button class="active" data-intent="buy">Buy</button>
@@ -89,9 +107,14 @@
               <strong>For You</strong>
               <span id="feedLocation">Australia</span>
             </div>
-            <button class="icon-button" id="nextButton" aria-label="Next listing">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l7 7-7 7M5 12h14" /></svg>
-            </button>
+            <div class="top-actions">
+              <button class="icon-button" id="searchButton" aria-label="Open search filters">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15zM16 16l5 5" /></svg>
+              </button>
+              <button class="icon-button" id="nextButton" aria-label="Next listing">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l7 7-7 7M5 12h14" /></svg>
+              </button>
+            </div>
           </header>
 
           <div id="feed" class="feed" tabindex="0"></div>
@@ -157,17 +180,35 @@
 
     <template id="listingTemplate">
       <article class="listing-card">
-        <img class="listing-image" alt="" />
+        <div class="gallery" aria-label="Property photos"></div>
+        <div class="photo-count"></div>
         <div class="shade"></div>
         <div class="listing-body">
           <div class="status-row">
             <span class="tag"></span>
             <span class="auction"></span>
           </div>
-          <h1></h1>
+          <h1><button class="title-toggle" type="button"></button></h1>
           <p class="suburb"></p>
+          <p class="card-description"></p>
           <div class="price"></div>
           <div class="property-stats"></div>
+          <details class="card-details">
+            <summary>Property details</summary>
+            <div class="mini-map" aria-label="Property location map"></div>
+            <div class="card-agent">
+              <div class="avatar card-agent-initials">AG</div>
+              <div>
+                <strong class="card-agent-name"></strong>
+                <span class="card-agent-agency"></span>
+              </div>
+            </div>
+            <div class="card-contact-actions">
+              <a class="small-button call-link" href="#">Call</a>
+              <a class="small-button email-link" href="#">Email</a>
+              <button class="small-button inline-inspect" type="button">Inspect</button>
+            </div>
+          </details>
         </div>
         <div class="action-stack">
           <button class="round-action save-action" aria-label="Save listing">
