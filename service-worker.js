@@ -1,4 +1,4 @@
-const CACHE_NAME = "proptok-au-v6";
+const CACHE_NAME = "proptok-au-v7";
 const APP_SHELL = [
   "./",
   "./index.html",

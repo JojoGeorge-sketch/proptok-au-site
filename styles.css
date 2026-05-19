@@ -725,6 +725,9 @@ body.landing-page {
   min-width: 190px;
   margin: 0;
   padding: 0 22px;
+  display: inline-grid;
+  place-items: center;
+  text-decoration: none;
 }
 
 .install-card {
@@ -744,6 +747,15 @@ body.landing-page {
 
 .install-card p + h2 {
   margin-top: 8px;
+}
+
+.public-link {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: var(--accent);
+  font-weight: 800;
 }
 
 .landing-phone {

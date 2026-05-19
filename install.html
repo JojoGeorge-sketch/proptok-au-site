@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="apple-touch-icon" href="icons/icon-180.png" />
-    <link rel="stylesheet" href="styles.css?v=6" />
+    <link rel="stylesheet" href="styles.css?v=7" />
   </head>
   <body class="landing-page">
     <main class="landing-shell">
@@ -31,13 +31,16 @@
           </p>
 
           <div class="landing-actions">
-            <button id="installAppButton" class="primary-button" type="button">Install Test App</button>
-            <a class="secondary-button" href="./">Open In Browser</a>
+            <a class="primary-button install-primary-link" href="./">Open App</a>
+            <button id="installAppButton" class="secondary-button" type="button">Show Install Steps</button>
           </div>
 
-          <div class="install-card" id="installHelp">
-            <h2>Use the public link</h2>
-            <p>For phone installation, open the GitHub Pages HTTPS link. Local preview links are for browser testing only.</p>
+          <div class="install-card is-visible" id="installHelp">
+            <h2>Use the public HTTPS link</h2>
+            <p>Phone installation works from the GitHub Pages link, not from the local preview address.</p>
+            <a class="public-link" href="https://jojogeorge-sketch.github.io/proptok-au-site/install.html">
+              jojogeorge-sketch.github.io/proptok-au-site/install.html
+            </a>
             <h2>Install on iPhone</h2>
             <p>Open this page in Safari, tap Share, then tap Add to Home Screen.</p>
             <h2>Install on Android</h2>
@@ -77,12 +80,12 @@
         }
 
         installHelp.classList.add("is-visible");
-        installButton.textContent = "See Install Steps";
+        installButton.textContent = "Install Steps Shown";
       });
 
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
-          navigator.serviceWorker.register("service-worker.js?v=6");
+          navigator.serviceWorker.register("service-worker.js?v=7");
         });
       }
     </script>
