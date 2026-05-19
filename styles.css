@@ -510,3 +510,35 @@ svg {
     border-radius: 0;
   }
 }
+
+/* Public photo fallback for GitHub Pages */
+.listing-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.listing-card:nth-child(1)::before {
+  background-image: url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85");
+}
+
+.listing-card:nth-child(2)::before {
+  background-image: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85");
+}
+
+.listing-card:nth-child(3)::before {
+  background-image: url("https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=85");
+}
+
+.listing-image {
+  opacity: 0;
+}
+
+.shade,
+.listing-body,
+.action-stack {
+  z-index: 1;
+}
