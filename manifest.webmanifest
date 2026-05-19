@@ -1,88 +1,25 @@
-<!doctype html>
-<html lang="en-AU">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PropTok AU - Test App</title>
-    <meta name="theme-color" content="#0a0d0d" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="PropTok AU" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="icons/icon-180.png" />
-    <link rel="stylesheet" href="styles.css?v=4" />
-  </head>
-  <body class="landing-page">
-    <main class="landing-shell">
-      <section class="landing-hero">
-        <div class="landing-copy">
-          <div class="brand landing-brand">
-            <span class="brand-mark">P</span>
-            <div>
-              <strong>PropTok AU</strong>
-              <span>Property feed test app</span>
-            </div>
-          </div>
-
-          <h1>Try the future of property selling and buying</h1>
-          <p>
-            Add PropTok AU to your phone home screen and test the swipeable property feed, search filters,
-            listing details, map preview, and agent contact flow.
-          </p>
-
-          <div class="landing-actions">
-            <button id="installAppButton" class="primary-button" type="button">Install Test App</button>
-            <a class="secondary-button" href="./">Open In Browser</a>
-          </div>
-
-          <div class="install-card" id="installHelp">
-            <h2>Install on iPhone</h2>
-            <p>Open this page in Safari, tap Share, then tap Add to Home Screen.</p>
-            <h2>Install on Android</h2>
-            <p>Tap Install Test App. If no prompt appears, open Chrome menu and choose Add to Home screen.</p>
-          </div>
-        </div>
-
-        <div class="landing-phone" aria-label="PropTok AU preview">
-          <div class="phone mini-phone">
-            <div class="landing-preview-card">
-              <span>20 listings</span>
-              <strong>Swipe homes like short videos</strong>
-              <p>Tap a title for details, map and agent contact.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <script>
-      let deferredInstallPrompt;
-      const installButton = document.querySelector("#installAppButton");
-      const installHelp = document.querySelector("#installHelp");
-
-      window.addEventListener("beforeinstallprompt", (event) => {
-        event.preventDefault();
-        deferredInstallPrompt = event;
-        installButton.textContent = "Install Test App";
-      });
-
-      installButton.addEventListener("click", async () => {
-        if (deferredInstallPrompt) {
-          deferredInstallPrompt.prompt();
-          await deferredInstallPrompt.userChoice;
-          deferredInstallPrompt = null;
-          return;
-        }
-
-        installHelp.classList.add("is-visible");
-        installButton.textContent = "See Install Steps";
-      });
-
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker.register("service-worker.js");
-        });
-      }
-    </script>
-  </body>
-</html>
+{
+  "name": "PropTok AU",
+  "short_name": "PropTok",
+  "description": "TikTok-style Australian property selling app prototype.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0d0d",
+  "theme_color": "#0a0d0d",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
