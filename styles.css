@@ -28,6 +28,10 @@ body {
   color: var(--ink);
 }
 
+body.landing-page {
+  overflow-x: hidden;
+}
+
 button,
 input,
 select {
@@ -638,6 +642,142 @@ svg {
   font-weight: 900;
 }
 
+.secondary-button {
+  display: inline-grid;
+  place-items: center;
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 18px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.landing-shell {
+  min-height: 100vh;
+  padding: 22px;
+}
+
+body.landing-page {
+  background:
+    linear-gradient(90deg, rgba(6, 10, 10, 0.78) 0%, rgba(6, 10, 10, 0.52) 46%, rgba(6, 10, 10, 0.16) 100%),
+    linear-gradient(180deg, rgba(6, 10, 10, 0.02), rgba(6, 10, 10, 0.58)),
+    url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=86") center / cover fixed;
+}
+
+.landing-hero {
+  display: grid;
+  grid-template-columns: minmax(280px, 560px) minmax(280px, 1fr);
+  gap: 34px;
+  align-items: center;
+  min-height: calc(100vh - 44px);
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.landing-copy {
+  display: grid;
+  gap: 18px;
+}
+
+.landing-brand {
+  width: fit-content;
+  min-width: 260px;
+}
+
+.landing-copy h1 {
+  max-width: 720px;
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 5.4rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.landing-copy p {
+  max-width: 620px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+.landing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.landing-actions .primary-button {
+  width: auto;
+  min-width: 190px;
+  margin: 0;
+  padding: 0 22px;
+}
+
+.install-card {
+  display: grid;
+  gap: 8px;
+  max-width: 580px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  background: var(--panel);
+}
+
+.install-card h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.install-card p + h2 {
+  margin-top: 8px;
+}
+
+.landing-phone {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+}
+
+.mini-phone {
+  width: min(100%, 360px);
+  height: 680px;
+  min-height: 620px;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.92)),
+    url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=84") center / cover;
+}
+
+.landing-preview-card {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 24px;
+  display: grid;
+  gap: 10px;
+}
+
+.landing-preview-card span {
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: rgba(0, 0, 0, 0.32);
+}
+
+.landing-preview-card strong {
+  font-size: 2.1rem;
+  line-height: 1;
+}
+
+.landing-preview-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+}
+
 .enquiry-panel form {
   display: grid;
   gap: 10px;
@@ -657,6 +797,34 @@ svg {
 }
 
 @media (max-width: 760px) {
+  .landing-shell {
+    padding: 14px;
+  }
+
+  .landing-hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .landing-phone {
+    display: none;
+  }
+
+  .landing-copy h1 {
+    font-size: clamp(2.3rem, 13vw, 4rem);
+  }
+
+  .landing-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .landing-actions .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+
   .app-shell {
     display: flex;
     flex-direction: column;
